@@ -9,13 +9,12 @@ const ShopProvider = ({children}) => {
 
   const [products, setProducts] = useState ([])
 
-  const isProductOnCart = (id) =>{
+  const isOnCart = (id) =>{
     return products.some(product => product.id === id)
   }
   
   const addProduct = (product) => {
-    const isInCart = isProductOnCart(product.id)
-    console.log(isInCart);
+    const isInCart = isOnCart(product.id)
     if (isInCart) {
       const prodRepe = products.find(element => element.id === product.id)
       prodRepe.cantidad += product.cantidad
@@ -43,14 +42,13 @@ const ShopProvider = ({children}) => {
   } 
 
   const total = () => {
-    let tot = 0;
+    let total = 0;
     for (const product of products) {
-      tot += product.price * product.cantidad
+      total += product.price * product.cantidad
     }
-    return tot;
+    return total;
   }
  
-
   return (
     <Shop.Provider value = {{products, setProducts, addProduct, cantCart, removeItem, cleanCart, total}}>
         {children}

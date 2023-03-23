@@ -6,15 +6,12 @@ import {Shop} from '../Context/ShopProvider'
 
 function ItemCount({detail}) {
 
-
     const [cantidad, setCantidad] = useState(1)
-
 
     const {addProduct} = useContext(Shop)
 
     const onAdd = (cantidad) => {
         if (cantidad < detail.stock){
-          console.log(`Se agregaron ${cantidad} de productos.`)
           addProduct({...detail, cantidad: cantidad})
         }
  }  

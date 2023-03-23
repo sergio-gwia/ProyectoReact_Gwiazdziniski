@@ -9,11 +9,11 @@ function itemList({product}) {
           return (
             <Item
             key={prod.id}
-            id={prod.id}
             name = {prod.name}
             description = {prod.description}
             price = {prod.price}
             img = {prod.pictureUrl}
+            id = {prod.id}
           />
           )
 

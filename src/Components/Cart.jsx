@@ -28,17 +28,21 @@ const Cart = () => {
           return <Tabla key={product.id} product={product}/>
         })}
         <tr>
-              <td className='fs-5 fw-bolder' scope='col'>Total:</td>
-              <td className='fs-5 fw-bolder' scope='col'>${total()} </td>
+            <td className='fs-5 fw-bolder' scope='col'>Total:</td>
+            <td className='fs-5 fw-bolder' scope='col'>$ {total()} </td>
         </tr>
       </tbody>
      </table>
+     
     : <Link to={"/"}>
       <button className='btn btn-success'>Agregar Productos al Carro</button>
-    </Link> 
-    
+      </Link> 
     } 
     </div>
+    <div className='d-flex justify-content-center mb-3'>
+      {products.length > 1 ? <button className='btn btn-success' onClick={cleanCart}>Eliminar Carrito</button> : <div></div> }
+    </div>
+
     </>
   )
 }
