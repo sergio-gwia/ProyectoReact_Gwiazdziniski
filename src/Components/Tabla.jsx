@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { Shop } from '../Context/ShopProvider'
 
+
 const Tabla = ({product}) => {
   const {removeItem} = useContext(Shop)
+
   return (
     <tr>
       <th><img className='imagen-cart' src={product.pictureUrl} alt="Table-Row" /></th>

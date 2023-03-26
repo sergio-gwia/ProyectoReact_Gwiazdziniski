@@ -3,6 +3,7 @@ import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Shop } from '../Context/ShopProvider'
 import Tabla from './Tabla'
+import Form from './Form'
 
 const Cart = () => {
 
@@ -30,6 +31,11 @@ const Cart = () => {
         <tr>
             <td className='fs-5 fw-bolder' scope='col'>Total:</td>
             <td className='fs-5 fw-bolder' scope='col'>$ {total()} </td>
+            <td>
+              <div className='d-flex justify-content-center mb-3'>
+                {products.length > 0 ? <button className='btn btn-success' onClick={cleanCart}>Eliminar Carrito</button> : <div></div> }
+              </div>
+            </td>
         </tr>
       </tbody>
      </table>
@@ -39,10 +45,7 @@ const Cart = () => {
       </Link> 
     } 
     </div>
-    <div className='d-flex justify-content-center mb-3'>
-      {products.length > 1 ? <button className='btn btn-success' onClick={cleanCart}>Eliminar Carrito</button> : <div></div> }
-    </div>
-
+    {products.length > 0 ?<div className='d-flex justify-content-center'><Form products={products}/></div> : <div></div>}
     </>
   )
 }
